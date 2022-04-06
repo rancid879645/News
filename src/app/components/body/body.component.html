@@ -1,0 +1,30 @@
+
+<div [ngClass]="isDark ? 'bg-dark': 'bg-ligth'">
+    <h1 [ngClass]="isDark ? 'bg-dark text-white text-center': 'bg-ligth text-center'">Actual News</h1>
+
+    <div class="btn-group" role="group" aria-label="Filter">
+        <button type="button" [ngClass]="isDark ? 'btn btn-dark': 'btn btn-light'" (click)="FilterNewsByCategory(1)" >Internacional</button>
+        <button type="button" [ngClass]="isDark ? 'btn btn-dark': 'btn btn-light'" (click)="FilterNewsByCategory(2)" >Actualidad</button>
+        <button type="button" [ngClass]="isDark ? 'btn btn-dark': 'btn btn-light'" (click)="FilterNewsByCategory(3)" >Motor</button>  
+        <button type="button" [ngClass]="isDark ? 'btn btn-dark': 'btn btn-light'" (click)="BW()">B/W</button>
+    </div>
+    
+    <div>    
+        <ul class="list-group">
+            <li *ngFor="let n of filteredNews; let i = index" [ngClass]="isDark ? 'bg-dark': 'bg-ligth'">
+                <span [ngClass]="isDark ? 'd-block p-2 bg-dark text-white': 'd-block p-2 bg-ligth'" class="">
+                    <div [ngClass]="isDark ? 'card bg-dark': 'card bg-ligth'" class="" style="width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title"> {{ n.Title }} </h4>
+                            <p class="card-text"> {{ n.Content }} </p>
+                            <a href="{{n.Url}}" class="btn btn-primary">Check out</a>
+                        </div>
+                    </div>
+                </span>            
+            </li>
+        </ul>
+    </div>    
+</div>
+
+
+
